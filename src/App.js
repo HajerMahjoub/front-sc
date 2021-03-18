@@ -7,7 +7,7 @@ const queryClient = new QueryClient()
 
 function Products() {
   const { isLoading, error, data } = useQuery('getProducts', () =>
-    axios.post('http://localhost:3000/products/related', {
+    axios.post(`${process.env.REACT_APP_BACKEND_URL}/products/related`, {
       url: qs.parse(document.location.search, { ignoreQueryPrefix: true }).url
     })
   )
